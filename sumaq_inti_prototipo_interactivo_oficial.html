@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMAQ INTI - Prototipo Oficial con Logo</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPurple: '#4A2C6E',
+                        brandYellow: '#F5C242',
+                        brandMint: '#A8E6CF',
+                        brandTurquoise: '#12A182',
+                        brandBg: '#FDFBF7',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D2D2D;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1EDE3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4A2C6E;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-brandBg selection:bg-brandYellow selection:text-brandPurple">
+
+    <!-- Top Prototypes Navigation Bar -->
+    <header class="bg-brandPurple text-white py-2 px-4 shadow-md flex justify-between items-center text-xs z-50">
+        <div class="flex items-center space-x-2">
+            <span class="bg-brandYellow text-brandPurple font-bold px-2 py-0.5 rounded-full">Prototipo UX/UI</span>
+            <span>SUMAQ INTI - Versión Oficial con Logo Vectorial</span>
+        </div>
+        <div class="flex space-x-2">
+            <button onclick="switchScreen('login')" id="nav-btn-login" class="px-3 py-1 rounded bg-brandYellow text-brandPurple font-semibold transition hover:opacity-90">1. Inicio de Sesión</button>
+            <button onclick="switchScreen('dashboard')" id="nav-btn-dashboard" class="px-3 py-1 rounded bg-white/20 text-white font-semibold transition hover:bg-white/30">2. Panel Principal</button>
+            <button onclick="switchScreen('report')" id="nav-btn-report" class="px-3 py-1 rounded bg-white/20 text-white font-semibold transition hover:bg-white/30">3. Reporte de Logros</button>
+        </div>
+    </header>
+
+    <!-- Main Container holding the 3 interactive screens -->
+    <main class="flex-grow flex flex-col">
+
+        <!-- ========================================== -->
+        <!-- SCREEN 1: INICIO DE SESIÓN -->
+        <!-- ========================================== -->
+        <section id="screen-login" class="flex flex-col lg:flex-row flex-grow w-full min-h-[calc(100vh-36px)]">
+            <!-- Left Banner (Purple side with Official SVG Logo) -->
+            <div class="lg:w-1/2 bg-brandPurple text-white p-8 lg:p-12 flex flex-col justify-between relative overflow-hidden">
+                <!-- Top Left Official Logo Component -->
+                <div class="flex items-center space-x-3 z-10 cursor-pointer" onclick="switchScreen('login')">
+                    <div class="bg-white p-2.5 rounded-2xl shadow-lg flex items-center justify-center">
+                        <!-- Official SVG Logo replica -->
+                        <svg viewBox="0 0 220 110" class="w-28 h-14">
+                            <!-- Sun & Rays -->
+                            <circle cx="55" cy="55" r="24" fill="#F5C242"/>
+                            <rect x="53" y="18" width="4" height="8" rx="2" fill="#F5C242"/>
+                            <rect x="25" y="30" width="8" height="4" rx="2" fill="#F5C242" transform="rotate(-45 29 32)"/>
+                            <rect x="18" y="53" width="8" height="4" rx="2" fill="#F5C242"/>
+                            <rect x="26" y="74" width="8" height="4" rx="2" fill="#F5C242" transform="rotate(45 30 76)"/>
+                            <rect x="79" y="30" width="8" height="4" rx="2" fill="#F5C242" transform="rotate(45 83 32)"/>
+                            <!-- Mountain & Snow -->
+                            <path d="M22,70 L55,38 L88,70 Z" fill="#4A2C6E"/>
+                            <path d="M48,46 L55,38 L62,46 L58,52 L55,48 L52,52 Z" fill="#FFFFFF"/>
+                            <!-- Waves / Hills (Turquoise / Mint) -->
+                            <path d="M20,74 Q55,64 90,74 Q55,94 20,74 Z" fill="#12A182"/>
+                            <path d="M22,82 Q55,72 88,82 Q55,102 22,82 Z" fill="#A8E6CF"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-extrabold tracking-wide text-white">SUMAQ <span class="text-brandYellow">INTI</span></h1>
+                        <p class="text-[10px] text-brandMint font-medium">Tu futuro financiero empieza hoy</p>
+                    </div>
+                </div>
+
+                <!-- Center Graphic / Hero with Official Logo SVG -->
+                <div class="my-auto py-10 text-center flex flex-col items-center">
+                    <div class="bg-white p-6 rounded-3xl shadow-2xl mb-6 border-4 border-brandYellow/50 max-w-xs w-full">
+                        <svg viewBox="0 0 240 130" class="w-full h-auto drop-shadow">
+                            <!-- Sun -->
+                            <circle cx="65" cy="55" r="28" fill="#F5C242"/>
+                            <!-- Sun Rays -->
+                            <rect x="63" y="10" width="4" height="12" rx="2" fill="#F5C242"/>
+                            <rect x="26" y="24" width="10" height="4" rx="2" fill="#F5C242" transform="rotate(-45 31 26)"/>
+                            <rect x="12" y="53" width="12" height="4" rx="2" fill="#F5C242"/>
+                            <rect x="24" y="80" width="10" height="4" rx="2" fill="#F5C242" transform="rotate(45 29 82)"/>
+                            <rect x="94" y="24" width="10" height="4" rx="2" fill="#F5C242" transform="rotate(45 99 26)"/>
+                            <!-- Mountain -->
+                            <path d="M25,80 L65,40 L105,80 Z" fill="#4A2C6E"/>
+                            <!-- Snow Peak -->
+                            <path d="M57,48 L65,40 L73,48 L68,56 L65,51 L62,56 Z" fill="#FFFFFF"/>
+                            <!-- Turquoise Waves -->
+                            <path d="M22,85 Q65,72 108,85 Q65,108 22,85 Z" fill="#12A182"/>
+                            <path d="M25,95 Q65,82 105,95 Q65,118 25,95 Z" fill="#A8E6CF"/>
+                            <!-- Text Part in Logo -->
+                            <text x="125" y="65" font-family="Inter, sans-serif" font-weight="800" font-size="24" fill="#4A2C6E">SUMAQ</text>
+                            <text x="125" y="92" font-family="Inter, sans-serif" font-weight="800" font-size="26" fill="#12A182">INTI</text>
+                        </svg>
+                        <p class="text-[11px] font-bold text-brandPurple uppercase tracking-wider mt-2">Tu futuro financiero empieza hoy</p>
+                    </div>
+
+                    <h2 class="text-2xl lg:text-3xl font-extrabold text-white mb-3">Plataforma Gamificada de Educación Financiera</h2>
+                    <p class="text-brandMint/90 max-w-md text-xs lg:text-sm leading-relaxed">
+                        Conecta el progreso escolar de tus hijos con evidencia directa para el hogar.
+                    </p>
+                </div>
+
+                <!-- Bottom Link -->
+                <div class="z-10">
+                    <a href="#" onclick="showNotification('Redirigiendo al portal de estudiantes...')" class="text-brandMint hover:underline text-xs font-semibold flex items-center space-x-2">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Portal del estudiante</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Form (Cream side) -->
+            <div class="lg:w-1/2 bg-brandBg p-8 lg:p-16 flex flex-col justify-center items-center">
+                <div class="w-full max-w-md bg-white p-8 rounded-3xl shadow-xl border border-brandPurple/10">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-extrabold text-brandPurple mb-1">¡Bienvenido, apoderado!</h3>
+                        <p class="text-xs text-gray-600">Ingresa para acompañar el progreso financiero de tu hijo.</p>
+                    </div>
+
+                    <form onsubmit="event.preventDefault(); switchScreen('dashboard');" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Correo electrónico</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </span>
+                                <input type="email" required placeholder="apoderado@correo.com" value="sr.sanchez@sumaqinti.pe" class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brandPurple text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Contraseña</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                                    <i class="fa-solid fa-lock"></i>
+                                </span>
+                                <input type="password" required placeholder="••••••••" value="password123" class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brandPurple text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Código del colegio</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                                    <i class="fa-solid fa-school"></i>
+                                </span>
+                                <input type="text" required placeholder="COL-2026-LIM" value="COL-2026-LIM" class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brandPurple text-sm">
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <a href="#" onclick="showNotification('Enlace de recuperación enviado a su correo.')" class="text-xs text-brandPurple font-semibold hover:underline">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <!-- Button leading to Screen 2 -->
+                        <button type="submit" class="w-full py-3.5 bg-brandPurple text-white font-bold rounded-xl shadow-lg hover:bg-brandPurple/90 transition transform active:scale-95 flex items-center justify-center space-x-2">
+                            <span>Vincular con mi hijo</span>
+                            <i class="fa-solid fa-arrow-right text-brandYellow"></i>
+                        </button>
+                    </form>
+
+                    <div class="mt-5 text-center">
+                        <p class="text-[11px] text-gray-500 leading-normal">
+                            Los datos de tu hijo están protegidos y solo tú y el colegio pueden ver su progreso.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SCREEN 2: PANEL PRINCIPAL -->
+        <!-- ========================================== -->
+        <section id="screen-dashboard" class="hidden flex flex-col lg:flex-row flex-grow w-full min-h-[calc(100vh-36px)]">
+            <!-- Sidebar Navigation with Official Logo -->
+            <aside class="w-full lg:w-72 bg-brandPurple text-white p-6 flex flex-col justify-between shrink-0">
+                <div>
+                    <!-- Logo Top Left Official -->
+                    <div class="flex items-center space-x-2 mb-8 cursor-pointer bg-white/10 p-3 rounded-2xl" onclick="switchScreen('login')">
+                        <div class="bg-white p-1.5 rounded-xl shadow">
+                            <svg viewBox="0 0 110 55" class="w-16 h-8">
+                                <circle cx="25" cy="27" r="12" fill="#F5C242"/>
+                                <path d="M10,36 L25,18 L40,36 Z" fill="#4A2C6E"/>
+                                <path d="M8,38 Q25,31 42,38 Q25,48 8,38 Z" fill="#12A182"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-sm font-extrabold tracking-wide">SUMAQ <span class="text-brandYellow">INTI</span></h2>
+                            <p class="text-[9px] text-brandMint">Tu futuro financiero</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation items -->
+                    <nav class="space-y-1">
+                        <a href="#" onclick="switchScreen('dashboard')" class="flex items-center space-x-3 px-4 py-3 rounded-xl bg-white/10 text-white font-semibold text-sm transition">
+                            <i class="fa-solid fa-chart-pie text-brandYellow w-5"></i>
+                            <span>Inicio</span>
+                        </a>
+                        <a href="#" onclick="switchScreen('dashboard')" class="flex items-center space-x-3 px-4 py-3 rounded-xl bg-brandYellow text-brandPurple font-bold text-sm shadow">
+                            <i class="fa-solid fa-user-graduate w-5"></i>
+                            <span>Progreso del Estudiante</span>
+                        </a>
+                        <a href="#" onclick="showNotification('Sección Hitos y Recompensas próximamente')" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white text-sm transition">
+                            <i class="fa-solid fa-trophy w-5"></i>
+                            <span>Hitos y Recompensas</span>
+                        </a>
+                        <a href="#" onclick="switchScreen('report')" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white text-sm transition">
+                            <i class="fa-solid fa-file-invoice-dollar w-5"></i>
+                            <span>Reportes Financieros</span>
+                        </a>
+                        <a href="#" onclick="showNotification('Configuración general')" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white text-sm transition">
+                            <i class="fa-solid fa-gear w-5"></i>
+                            <span>Configuración de Cuenta</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- User profile footer -->
+                <div class="pt-6 border-t border-white/15 flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-brandMint text-brandPurple font-extrabold flex items-center justify-center shadow">
+                        SS
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-white">Hola, Sr. Sánchez</p>
+                        <p class="text-[10px] text-brandMint">Apoderado</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="flex-grow p-6 lg:p-8 bg-brandBg overflow-y-auto">
+                <!-- Top Header bar -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                    <h2 class="text-2xl lg:text-3xl font-extrabold text-brandPurple">Panel Principal</h2>
+                    <div class="flex items-center space-x-3 bg-white px-4 py-2 rounded-2xl shadow-sm border border-brandPurple/10">
+                        <span class="text-xs text-gray-500 font-medium">Seleccionar hijo/a:</span>
+                        <select class="text-sm font-bold text-brandPurple bg-transparent focus:outline-none cursor-pointer">
+                            <option>Ana Sánchez</option>
+                            <option>Mateo Sánchez</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPurple"></i>
+                    </div>
+                </div>
+
+                <!-- Dashboard Grid Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left 2 columns: Progress Cards & Line Chart -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- Progress Cards Container -->
+                        <div class="bg-white p-6 rounded-3xl shadow-md border border-brandPurple/10">
+                            <div class="mb-4">
+                                <h3 class="text-base font-extrabold text-brandPurple">Ana Sánchez - Nivel 3: Explorador Financiero</h3>
+                                <p class="text-xs text-gray-500">Resumen general de actividades del bimestre</p>
+                            </div>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                                <!-- Card 1: 65% Avance -->
+                                <div class="bg-brandBg p-4 rounded-2xl flex flex-col items-center justify-center text-center border border-brandPurple/5">
+                                    <span class="text-[11px] font-semibold text-gray-600 mb-2">Avance del Curso</span>
+                                    <div class="relative w-16 h-16 flex items-center justify-center">
+                                        <svg class="w-full h-full transform -rotate-90">
+                                            <circle cx="32" cy="32" r="26" stroke="#E5E7EB" stroke-width="6" fill="transparent"/>
+                                            <circle cx="32" cy="32" r="26" stroke="#4A2C6E" stroke-width="6" stroke-dasharray="163.3" stroke-dashoffset="57.1" stroke-linecap="round" fill="transparent"/>
+                                        </svg>
+                                        <span class="absolute text-xs font-extrabold text-brandPurple">65%</span>
+                                    </div>
+                                    <span class="text-[9px] text-gray-400 mt-1">completado</span>
+                                </div>
+
+                                <!-- Card 2: 8 de 10 Retos -->
+                                <div class="bg-brandBg p-4 rounded-2xl flex flex-col items-center justify-center text-center border border-brandPurple/5">
+                                    <span class="text-[11px] font-semibold text-gray-600 mb-2">Retos Completados</span>
+                                    <div class="relative w-16 h-16 flex items-center justify-center">
+                                        <svg class="w-full h-full transform -rotate-90">
+                                            <circle cx="32" cy="32" r="26" stroke="#E5E7EB" stroke-width="6" fill="transparent"/>
+                                            <circle cx="32" cy="32" r="26" stroke="#4A2C6E" stroke-width="6" stroke-dasharray="163.3" stroke-dashoffset="32.6" stroke-linecap="round" fill="transparent"/>
+                                        </svg>
+                                        <span class="absolute text-xs font-extrabold text-brandPurple">8 de 10</span>
+                                    </div>
+                                    <span class="text-[9px] text-gray-400 mt-1">desafiantes</span>
+                                </div>
+
+                                <!-- Card 3: Insignias -->
+                                <div class="bg-brandBg p-4 rounded-2xl flex flex-col items-center justify-center text-center border border-brandPurple/5">
+                                    <span class="text-[11px] font-semibold text-gray-600 mb-2">Insignias Obtenidas</span>
+                                    <div class="w-16 h-16 rounded-full bg-brandYellow/20 border-4 border-brandYellow flex items-center justify-center mb-1">
+                                        <i class="fa-solid fa-medal text-brandPurple text-xl"></i>
+                                    </div>
+                                    <span class="text-sm font-extrabold text-brandPurple mt-1">5</span>
+                                </div>
+
+                                <!-- Card 4: Racha de días -->
+                                <div class="bg-brandBg p-4 rounded-2xl flex flex-col items-center justify-center text-center border border-brandPurple/5">
+                                    <span class="text-[11px] font-semibold text-gray-600 mb-2">Racha de Días Activos</span>
+                                    <div class="w-16 h-16 rounded-full bg-brandMint/30 border-4 border-brandMint flex items-center justify-center mb-1">
+                                        <i class="fa-solid fa-fire text-brandPurple text-xl"></i>
+                                    </div>
+                                    <span class="text-sm font-extrabold text-brandPurple mt-1">7 días</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Line Chart Box (Gráfico de Líneas) -->
+                        <div class="bg-white p-6 rounded-3xl shadow-md border border-brandPurple/10">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+                                <div>
+                                    <h3 class="text-base font-extrabold text-brandPurple">Gráfico de Evolución Semanal</h3>
+                                    <p class="text-xs text-gray-500">Métricas de aprendizaje y módulos completados</p>
+                                </div>
+                                <div class="flex items-center space-x-4 text-[11px] mt-2 sm:mt-0">
+                                    <span class="flex items-center space-x-1"><span class="w-3 h-3 rounded-full bg-brandPurple inline-block"></span><span class="text-gray-600">Tiempo de uso (h)</span></span>
+                                    <span class="flex items-center space-x-1"><span class="w-3 h-3 rounded-full bg-brandYellow inline-block"></span><span class="text-gray-600">Módulo Ahorro</span></span>
+                                    <span class="flex items-center space-x-1"><span class="w-3 h-3 rounded-full bg-brandTurquoise inline-block"></span><span class="text-gray-600">Módulo Presupuesto</span></span>
+                                </div>
+                            </div>
+
+                            <!-- SVG Line Chart Simulation -->
+                            <div class="relative w-full h-64">
+                                <svg viewBox="0 0 700 250" class="w-full h-full overflow-visible">
+                                    <!-- Grid lines -->
+                                    <line x1="40" y1="20" x2="680" y2="20" stroke="#F1EDE3" stroke-width="1"/>
+                                    <line x1="40" y1="60" x2="680" y2="60" stroke="#F1EDE3" stroke-width="1"/>
+                                    <line x1="40" y1="100" x2="680" y2="100" stroke="#F1EDE3" stroke-width="1"/>
+                                    <line x1="40" y1="140" x2="680" y2="140" stroke="#F1EDE3" stroke-width="1"/>
+                                    <line x1="40" y1="180" x2="680" y2="180" stroke="#F1EDE3" stroke-width="1"/>
+                                    <line x1="40" y1="220" x2="680" y2="220" stroke="#E5E7EB" stroke-width="2"/>
+
+                                    <!-- Y Axis Labels -->
+                                    <text x="25" y="24" font-size="10" fill="#9CA3AF" text-anchor="end">14</text>
+                                    <text x="25" y="64" font-size="10" fill="#9CA3AF" text-anchor="end">10</text>
+                                    <text x="25" y="104" font-size="10" fill="#9CA3AF" text-anchor="end">8</text>
+                                    <text x="25" y="144" font-size="10" fill="#9CA3AF" text-anchor="end">6</text>
+                                    <text x="25" y="184" font-size="10" fill="#9CA3AF" text-anchor="end">4</text>
+                                    <text x="25" y="224" font-size="10" fill="#9CA3AF" text-anchor="end">0</text>
+
+                                    <!-- X Axis Labels -->
+                                    <text x="80" y="240" font-size="11" fill="#6B7280" text-anchor="middle">Lun</text>
+                                    <text x="180" y="240" font-size="11" fill="#6B7280" text-anchor="middle">Mar</text>
+                                    <text x="280" y="240" font-size="11" fill="#6B7280" text-anchor="middle">Mié</text>
+                                    <text x="380" y="240" font-size="11" fill="#6B7280" text-anchor="middle">Jue</text>
+                                    <text x="480" y="240" font-size="11" fill="#6B7280" text-anchor="middle">Vie</text>
+                                    <text x="580" y="240" font-size="11" fill="#6B7280" text-anchor="middle">Sáb</text>
+                                    <text x="660" y="240" font-size="11" fill="#6B7280" text-anchor="middle">Dom</text>
+
+                                    <!-- Line 1: Tiempo de uso (Brand Purple) -->
+                                    <path d="M80,160 L180,110 L280,130 L380,80 L480,60 L580,90 L660,40" fill="none" stroke="#4A2C6E" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <!-- Points -->
+                                    <circle cx="80" cy="160" r="4" fill="#4A2C6E"/>
+                                    <circle cx="180" cy="110" r="4" fill="#4A2C6E"/>
+                                    <circle cx="280" cy="130" r="4" fill="#4A2C6E"/>
+                                    <circle cx="380" cy="80" r="4" fill="#4A2C6E"/>
+                                    <circle cx="480" cy="60" r="4" fill="#4A2C6E"/>
+                                    <circle cx="580" cy="90" r="4" fill="#4A2C6E"/>
+                                    <circle cx="660" cy="40" r="4" fill="#4A2C6E"/>
+
+                                    <!-- Line 2: Modulo Ahorro (Brand Yellow) -->
+                                    <path d="M80,180 L180,120 L280,135 L380,100 L480,120 L580,110 L660,70" fill="none" stroke="#F5C242" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+                                    <!-- Line 3: Modulo Presupuesto (Brand Turquoise) -->
+                                    <path d="M80,210 L180,130 L280,150 L380,120 L480,130 L580,120 L660,85" fill="none" stroke="#12A182" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Alertas y Botón Ver Detalles -->
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-3xl shadow-md border border-brandPurple/10 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-base font-extrabold text-brandPurple mb-4 flex items-center justify-between">
+                                    <span>Alertas para el Apoderado</span>
+                                    <span class="bg-brandYellow/30 text-brandPurple text-xs px-2 py-0.5 rounded-full">2 nuevas</span>
+                                </h3>
+
+                                <div class="space-y-4 mb-6">
+                                    <!-- Alert 1 -->
+                                    <div class="p-3.5 bg-amber-50 border-l-4 border-brandYellow rounded-r-2xl flex items-start space-x-3">
+                                        <i class="fa-solid fa-triangle-exclamation text-amber-500 mt-0.5"></i>
+                                        <div>
+                                            <p class="text-xs font-bold text-gray-800">Cuidado</p>
+                                            <p class="text-xs text-gray-600 mt-0.5">Tu hijo no ha ingresado a la plataforma en los últimos 3 días.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Alert 2 -->
+                                    <div class="p-3.5 bg-emerald-50 border-l-4 border-brandTurquoise rounded-r-2xl flex items-start space-x-3">
+                                        <i class="fa-solid fa-circle-check text-brandTurquoise mt-0.5"></i>
+                                        <div>
+                                            <p class="text-xs font-bold text-gray-800">Felicitaciones</p>
+                                            <p class="text-xs text-gray-600 mt-0.5">¡Completó el simulador de crédito con éxito!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 pt-4 border-t border-gray-100">
+                                <button onclick="showNotification('Mensaje de ánimo enviado al estudiante.')" class="w-full py-3 bg-brandPurple text-white text-xs font-bold rounded-xl shadow hover:bg-brandPurple/90 transition flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-paper-plane text-brandYellow"></i>
+                                    <span>Enviar mensaje de ánimo</span>
+                                </button>
+
+                                <!-- Button leading to Screen 3 -->
+                                <button onclick="switchScreen('report')" class="w-full py-3 bg-brandBg border-2 border-brandPurple text-brandPurple text-xs font-bold rounded-xl shadow-sm hover:bg-brandPurple/5 transition flex items-center justify-center space-x-2">
+                                    <span>Ver detalles</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quick Tips Box -->
+                        <div class="bg-brandPurple text-white p-6 rounded-3xl shadow-md">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="bg-brandYellow p-2 rounded-xl text-brandPurple">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+                                <h4 class="font-extrabold text-sm">Consejo SUMAQ INTI</h4>
+                            </div>
+                            <p class="text-xs text-brandMint leading-relaxed">
+                                Conversar sobre los gastos del hogar durante la cena ayuda a consolidar los conceptos aprendidos en los módulos escolares.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SCREEN 3: REPORTE DE LOGROS -->
+        <!-- ========================================== -->
+        <section id="screen-report" class="hidden flex flex-col lg:flex-row flex-grow w-full min-h-[calc(100vh-36px)]">
+            <!-- Sidebar Navigation with Official Logo -->
+            <aside class="w-full lg:w-72 bg-brandPurple text-white p-6 flex flex-col justify-between shrink-0">
+                <div>
+                    <!-- Logo Top Left Official -->
+                    <div class="flex items-center space-x-2 mb-8 cursor-pointer bg-white/10 p-3 rounded-2xl" onclick="switchScreen('login')">
+                        <div class="bg-white p-1.5 rounded-xl shadow">
+                            <svg viewBox="0 0 110 55" class="w-16 h-8">
+                                <circle cx="25" cy="27" r="12" fill="#F5C242"/>
+                                <path d="M10,36 L25,18 L40,36 Z" fill="#4A2C6E"/>
+                                <path d="M8,38 Q25,31 42,38 Q25,48 8,38 Z" fill="#12A182"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-sm font-extrabold tracking-wide">SUMAQ <span class="text-brandYellow">INTI</span></h2>
+                            <p class="text-[9px] text-brandMint">Tu futuro financiero</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation items -->
+                    <nav class="space-y-1">
+                        <a href="#" onclick="switchScreen('dashboard')" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white text-sm transition">
+                            <i class="fa-solid fa-chart-pie w-5"></i>
+                            <span>Inicio</span>
+                        </a>
+                        <a href="#" onclick="switchScreen('dashboard')" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white text-sm transition">
+                            <i class="fa-solid fa-user-graduate w-5"></i>
+                            <span>Progreso del Estudiante</span>
+                        </a>
+                        <a href="#" onclick="showNotification('Próximamente')" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white text-sm transition">
+                            <i class="fa-solid fa-trophy w-5"></i>
+                            <span>Hitos y Recompensas</span>
+                        </a>
+                        <a href="#" onclick="switchScreen('report')" class="flex items-center space-x-3 px-4 py-3 rounded-xl bg-brandYellow text-brandPurple font-bold text-sm shadow">
+                            <i class="fa-solid fa-file-invoice-dollar w-5"></i>
+                            <span>Reportes Financieros</span>
+                        </a>
+                        <a href="#" onclick="showNotification('Configuración')" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white text-sm transition">
+                            <i class="fa-solid fa-gear w-5"></i>
+                            <span>Configuración de Cuenta</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- User profile footer -->
+                <div class="pt-6 border-t border-white/15 flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-brandMint text-brandPurple font-extrabold flex items-center justify-center shadow">
+                        SS
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-white">Hola, Sr. Sánchez</p>
+                        <p class="text-[10px] text-brandMint">Apoderado</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="flex-grow p-6 lg:p-8 bg-brandBg overflow-y-auto flex flex-col justify-between">
+                <div>
+                    <!-- Top Header -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <h2 class="text-2xl lg:text-3xl font-extrabold text-brandPurple">Reporte de Logros y Recomendaciones</h2>
+                        <div class="flex items-center space-x-3 bg-white px-4 py-2 rounded-2xl shadow-sm border border-brandPurple/10">
+                            <span class="text-xs text-gray-500 font-medium">Seleccionar hijo/a:</span>
+                            <select class="text-sm font-bold text-brandPurple bg-transparent focus:outline-none cursor-pointer">
+                                <option>Ana Sánchez</option>
+                                <option>Mateo Sánchez</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down text-xs text-brandPurple"></i>
+                        </div>
+                    </div>
+
+                    <!-- Main Report Card Box -->
+                    <div class="bg-white p-6 lg:p-8 rounded-3xl shadow-md border border-brandPurple/10 mb-6">
+                        <div class="border-b border-gray-100 pb-4 mb-6">
+                            <h3 class="text-xl font-extrabold text-brandPurple">Reporte de Logros - Bimestre 2</h3>
+                            <p class="text-xs text-gray-500 mt-1">Competencia del Currículo Nacional</p>
+                            <p class="text-sm font-bold text-gray-800 mt-0.5">Gestiona responsablemente los recursos económicos</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                            <!-- Left in Report: Nivel de Logro A & Bar -->
+                            <div class="space-y-6">
+                                <div>
+                                    <span class="text-xs font-bold text-gray-600 uppercase tracking-wider">Nivel de Logro</span>
+                                    <div class="flex items-center space-x-4 mt-3">
+                                        <!-- Big Letter A circle -->
+                                        <div class="w-16 h-16 rounded-full border-4 border-brandPurple flex items-center justify-center bg-brandPurple/5 shadow-inner">
+                                            <span class="text-3xl font-extrabold text-brandPurple">A</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-extrabold text-gray-900">Logro destacado</h4>
+                                            <p class="text-xs text-gray-500 mt-0.5">Demuestra comprensión avanzada en planificación de presupuestos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Achievement Progress Bar with Scale B to AD -->
+                                <div class="bg-brandBg p-4 rounded-2xl border border-gray-200">
+                                    <div class="flex justify-between text-[11px] font-bold text-gray-500 mb-2">
+                                        <span>B</span>
+                                        <span class="text-brandPurple bg-brandYellow/40 px-2 py-0.5 rounded">B (Actual: A)</span>
+                                        <span>AD</span>
+                                    </div>
+                                    <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden flex">
+                                        <div class="w-1/3 bg-brandPurple/60"></div>
+                                        <div class="w-1/3 bg-brandYellow relative">
+                                            <div class="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-5 bg-brandPurple rounded"></div>
+                                        </div>
+                                        <div class="w-1/3 bg-brandTurquoise"></div>
+                                    </div>
+                                    <div class="flex justify-between text-[10px] text-gray-400 mt-1">
+                                        <span>En proceso</span>
+                                        <span>Logrado (A)</span>
+                                        <span>Sobresaliente</span>
+                                    </div>
+                                </div>
+
+                                <!-- Radar Chart preview section -->
+                                <div>
+                                    <span class="text-xs font-extrabold text-brandPurple block mb-2">Gráfico de Avance por Competencias</span>
+                                    <div class="flex justify-center bg-brandBg p-4 rounded-2xl border border-gray-100">
+                                        <svg viewBox="0 0 200 180" class="w-48 h-44">
+                                            <!-- Radar grid polygons -->
+                                            <polygon points="100,20 160,60 140,130 60,130 40,60" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+                                            <polygon points="100,50 135,75 125,110 75,110 65,75" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+                                            <polygon points="100,80 110,90 105,100 95,100 90,90" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+                                            
+                                            <!-- Axis lines -->
+                                            <line x1="100" y1="90" x2="100" y2="20" stroke="#E5E7EB" stroke-width="1"/>
+                                            <line x1="100" y1="90" x2="160" y2="60" stroke="#E5E7EB" stroke-width="1"/>
+                                            <line x1="100" y1="90" x2="140" y2="130" stroke="#E5E7EB" stroke-width="1"/>
+                                            <line x1="100" y1="90" x2="60" y2="130" stroke="#E5E7EB" stroke-width="1"/>
+                                            <line x1="100" y1="90" x2="40" y2="60" stroke="#E5E7EB" stroke-width="1"/>
+
+                                            <!-- Data Polygon (Turquoise fill with Purple border) -->
+                                            <polygon points="100,35 150,65 130,120 70,115 50,65" fill="#12A182" fill-opacity="0.4" stroke="#4A2C6E" stroke-width="2"/>
+
+                                            <!-- Labels -->
+                                            <text x="100" y="12" font-size="9" font-weight="bold" fill="#4A2C6E" text-anchor="middle">Ahorro</text>
+                                            <text x="170" y="58" font-size="9" font-weight="bold" fill="#4A2C6E" text-anchor="start">Presupuesto</text>
+                                            <text x="145" y="145" font-size="9" font-weight="bold" fill="#4A2C6E" text-anchor="start">Ahorroso</text>
+                                            <text x="55" y="145" font-size="9" font-weight="bold" fill="#4A2C6E" text-anchor="end">Gasto Responsable</text>
+                                            <text x="30" y="58" font-size="9" font-weight="bold" fill="#4A2C6E" text-anchor="end">Presupuesto</text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right in Report: Recomendaciones para Casa -->
+                            <div class="bg-brandBg p-6 rounded-3xl border border-brandPurple/10 space-y-5">
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-brandPurple uppercase tracking-wide flex items-center space-x-2">
+                                        <i class="fa-solid fa-house-chimney text-brandYellow"></i>
+                                        <span>Recomendaciones para Casa</span>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 mt-1">Acciones sugeridas para apoyar el aprendizaje en familia.</p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <!-- Tip 1 -->
+                                    <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-brandPurple/5 flex items-start space-x-3">
+                                        <span class="text-brandYellow text-lg font-bold">+</span>
+                                        <div>
+                                            <p class="text-xs font-bold text-gray-800">Tip 1</p>
+                                            <p class="text-xs text-gray-600 mt-0.5">Pídele que te explique cómo usa Yape (o una app P2P equivalente).</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Tip 2 -->
+                                    <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-brandPurple/5 flex items-start space-x-3">
+                                        <span class="text-brandYellow text-lg font-bold">+</span>
+                                        <div>
+                                            <p class="text-xs font-bold text-gray-800">Tip 2</p>
+                                            <p class="text-xs text-gray-600 mt-0.5">Anímalo a ahorrar para una meta a corto plazo 🐷.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Tip 3 -->
+                                    <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-brandPurple/5 flex items-start space-x-3">
+                                        <span class="text-brandYellow text-lg font-bold">+</span>
+                                        <div>
+                                            <p class="text-xs font-bold text-gray-800">Tip 3</p>
+                                            <p class="text-xs text-gray-600 mt-0.5">Revisen juntos el presupuesto familiar mensual y sus categorías de gastos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons at bottom of Report -->
+                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 pt-6 border-t border-gray-100">
+                            <button onclick="showNotification('Descargando informe oficial en formato PDF...')" class="w-full sm:w-auto px-8 py-3.5 bg-brandPurple text-white text-xs font-bold rounded-xl shadow hover:bg-brandPurple/90 transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-file-pdf text-brandYellow"></i>
+                                <span>Descargar informe en PDF</span>
+                            </button>
+                            <button onclick="showNotification('Enlace compartido con el colegio exitosamente.')" class="w-full sm:w-auto px-8 py-3.5 bg-brandBg border-2 border-brandPurple text-brandPurple text-xs font-bold rounded-xl shadow-sm hover:bg-brandPurple/5 transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-share-nodes"></i>
+                                <span>Compartir con el colegio</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer notice -->
+                <footer class="text-center text-[11px] text-gray-500 py-4 border-t border-gray-200 mt-auto">
+                    Este reporte es generado automáticamente por SUMAQ INTI y validado por el docente tutor.
+                </footer>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-brandPurple text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 transform translate-y-20 opacity-0 transition-all duration-300 z-50 border border-brandYellow/30">
+        <i class="fa-solid fa-circle-check text-brandYellow text-lg"></i>
+        <span id="toast-message" class="text-xs font-semibold">Notificación de SUMAQ INTI</span>
+    </div>
+
+    <script>
+        // Function to switch between the 3 screens seamlessly
+        function switchScreen(screenId) {
+            // Hide all screens
+            document.getElementById('screen-login').classList.add('hidden');
+            document.getElementById('screen-dashboard').classList.add('hidden');
+            document.getElementById('screen-report').classList.add('hidden');
+
+            // Reset navigation header buttons style
+            document.getElementById('nav-btn-login').className = "px-3 py-1 rounded bg-white/20 text-white font-semibold transition hover:bg-white/30";
+            document.getElementById('nav-btn-dashboard').className = "px-3 py-1 rounded bg-white/20 text-white font-semibold transition hover:bg-white/30";
+            document.getElementById('nav-btn-report').className = "px-3 py-1 rounded bg-white/20 text-white font-semibold transition hover:bg-white/30";
+
+            // Show selected screen and highlight active button
+            if (screenId === 'login') {
+                document.getElementById('screen-login').classList.remove('hidden');
+                document.getElementById('nav-btn-login').className = "px-3 py-1 rounded bg-brandYellow text-brandPurple font-semibold transition hover:opacity-90";
+                showNotification('Visualizando Pantalla 1: Inicio de Sesión');
+            } else if (screenId === 'dashboard') {
+                document.getElementById('screen-dashboard').classList.remove('hidden');
+                document.getElementById('nav-btn-dashboard').className = "px-3 py-1 rounded bg-brandYellow text-brandPurple font-semibold transition hover:opacity-90";
+                showNotification('Visualizando Pantalla 2: Panel Principal');
+            } else if (screenId === 'report') {
+                document.getElementById('screen-report').classList.remove('hidden');
+                document.getElementById('nav-btn-report').className = "px-3 py-1 rounded bg-brandYellow text-brandPurple font-semibold transition hover:opacity-90";
+                showNotification('Visualizando Pantalla 3: Reporte de Logros');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Helper function for user feedback without using alert()
+        function showNotification(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
